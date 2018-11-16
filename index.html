@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Simple Pony Price Check</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="container">
+      <h1>My Little Pony Price Check</h1>
+      
+      <div class="content">
+        <p>
+          Sök efter avslutade auktioner på Tradera som har orden "My Little Pony" i titel och/eller objektsbeskrivning.
+        </p>
+        <p>
+          Du kan skriva in ponyns namn eller så skriver du in ett objekt, t.ex. "mugg".
+        </p>
+      </div>
+  
+      <div class="search">
+        <form id="pricecheck" method="post" onsubmit="checkPrice()">
+          <input id="query" type="text" placeholder="Vad vill du kolla priset på?" />
+          <button type="submit">Kolla priset</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function checkPrice() {
+      var query = document.getElementById('query').value;
+      var encodedQuery = encodeURIComponent(query);
+      var url = "https://www.tradera.com/search?q=my+little+pony+" + encodedQuery + "&queryScope=AllWordsAnyOrder&categoryId=0&searchInLongDescription=true&itemStatus=Ended&county=HelaSverige&zipcode=&itemType=All&priceRange=All&fromPrice=&toPrice=&fromNumberOfBids=&toNumberOfBids=&itemCondition=All&sellerType=All&alias=&sortBy=Relevance";
+      window.open(url);
+      }
+    </script>
+  </body>
+</html>
